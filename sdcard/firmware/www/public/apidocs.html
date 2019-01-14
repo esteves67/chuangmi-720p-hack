@@ -101,6 +101,7 @@
                             title: "Camera Control",
                             endpoints: [
                                { method: 'GET', uri: '/api/camera/state',                     desc: 'Returns a json of the current camera settings state.' },
+                               { method: 'GET', uri: '/api/camera/reset',                     desc: 'Reset the contrast, brightness, hue, saturation, sharpness and denoise to its default.' },
                                { method: 'GET', uri: '/api/camera/ir_cut',                    desc: 'Get the current state of infra red cut.' },
                                { method: 'GET', uri: '/api/camera/ir_cut/set/on',             desc: 'Turn infra red cut on.' },
                                { method: 'GET', uri: '/api/camera/ir_cut/set/off',            desc: 'Turn infra red cut off' },
