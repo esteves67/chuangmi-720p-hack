@@ -306,6 +306,13 @@ $app->group('/camera', function () use ($app) {
         return $response->withJson($data);
     })->setName('/camera');
 
+    $app->get('/reset', function ($request, $response) {
+        $success = CameraReset();
+        $message = ($success) ? "Camera settings have been reset" : "Failed to reset camera settings";
+        $data = array("message" => $message, "success" => $success);
+        return $response->withJson($data);
+    })->setName('/camera');
+
     // *********************************
     // ** ISP328                      **
     // *********************************
