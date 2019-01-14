@@ -94,7 +94,7 @@ class ISP328
             );
         }
 
-        return self::ReadValue();
+        return self::Get($key);
     }
 }
 
@@ -262,5 +262,21 @@ function CameraState() {
         "night_mode"  => NightMode::IsOn(),
         "flip_mode"   => FlipMode::IsOn(),
         "mirror_mode" => MirrorMode::IsOn(),
-    );
+        "brightness"  => (int)ISP328::Get('brightness'),
+        "contrast"    => (int)ISP328::Get('contrast'),
+        "hue"         => (int)ISP328::Get('hue'),
+        "saturation"  => (int)ISP328::Get('saturation'),
+        "denoise"     => (int)ISP328::Get('denoise'),
+        "sharpness"   => (int)ISP328::Get('sharpness'),
+    ) + LED::LedState();
+}
+
+function CameraReset() {
+    ISP328::Set('brightness', 128);
+    ISP328::Set('contrast', 128);
+    ISP328::Set('hue', 128);
+    ISP328::Set('saturation', 128);
+    ISP328::Set('denoise', 128);
+    ISP328::Set('sharpness', 128);
+    return true;
 }
